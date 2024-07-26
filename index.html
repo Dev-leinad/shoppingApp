@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping App</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <div class="cart-container">
+        <h2 class="title">Dessert</h2>
+
+        <div class="shopping-items">
+          <div class="items-row" id="items-row">
+            
+          </div>
+         
+        </div>
+      </div>
+      <div class="cart-section">
+        <div class="cart-box">
+          <h3 class="cart-head">Your cart <span id="cart-counter" ></span></h3>
+
+          <ul id="list-det">
+            
+          </ul>
+
+          <div class="total-container">
+            <p>Total: </p>
+            <span id="total-price"></span>
+          </div>
+
+          <button onclick=handleConfirmOrder() class="confirm-btn">Confirm Order</button>
+        </div>
+      </div>
+
+      <!-- Modal Box -->
+      <section id="modal" class="modal">
+        <div class="modal-container">
+          <div class="modal-head">
+            <span class="modal-icon">
+              <img src="assets/check-circle-regular (1).svg" alt="" />
+            </span>
+            <div class="modal-title">
+              <h3>Order Confirmed</h3>
+              <p>we hope you enjoy your food.</p>
+            </div>
+          </div>
+          <div class="modal-body">
+            <ul id="modal-body">
+              <!-- <li class="list-items">
+                <div class="item-img">
+                  <img src="assets/beer.jpg" class="" alt="item img" />
+                </div>
+                <div class="item-details">
+                  <h4>classic tranun</h4>
+                  <p><span>1x</span> @$5.55</p>
+                  
+                </div>
+                <p >$5.55</p>
+
+              </li> -->
+            </ul>
+            
+                <div class="modal-item-total">
+                  <p>Order Total:</p>
+                  <p class="total-price" id="modal-total-price"></p>
+                </div>
+
+            <button class="modal-btn">Start New Order</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
