@@ -46,11 +46,12 @@ img {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  
   margin-top: 60px;
 }
 .items-row {
   width: 100%;
-  height: 200px;
+  height: 300px;
   display: flex;
   flex-wrap: wrap;
   gap: 23px;
@@ -58,9 +59,11 @@ img {
 
 .col-box {
   width: 30%;
-  height: 250px;
+  height: 100%;
   position: relative;
   border-radius: 6px;
+  border: 1px solid red;
+  margin-bottom: 10px;
 }
 
 .col-box button {
@@ -74,7 +77,13 @@ img {
   border: 1px solid tomato;
 }
 
-.col-box button::after {
+.col-box button:hover{
+  color: whitesmoke;
+  background-color: tomato;
+  transition: color 0.5ms ease-in-out;
+}
+
+/* .col-box button::after {
   content: attr(data-hover-text);
   position: absolute;
   top: 0;
@@ -90,7 +99,7 @@ img {
   opacity: 0;
   transition: opacity 0.3s;
   cursor: pointer;
-}
+} */
 .col-box img {
   width: 100%;
   height: 180px;
@@ -98,9 +107,28 @@ img {
   object-fit: cover;
 }
 
-.col-box button:hover::after {
-  opacity: 1;
+.col-box .title{
+  margin-top: 10px;
+  padding: 10px 6px;
+  font-size: 12px;
+
 }
+.col-box .bold-title{
+   font-weight: 600;
+   font-size: 16px;   
+  padding:0px 6px;
+}
+.col-box .foodprice{
+  font-size: 16px;
+  margin-top: 6px;
+  font-weight: 600;
+  padding: 5px 6px;
+  color: tomato;
+}
+
+/* .col-box button:hover::after {
+  opacity: 1;
+} */
 /* Cart section styling  */
 
 .cart-section {
@@ -132,6 +160,20 @@ img {
   background-color: #fff;
   padding: 6px;
   align-items: center;
+}
+
+.action-btn{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  color: red;
+  border: 1px solid red ;
+  border-radius: 50%;
+  display: flex;  
+  font-size: 20px;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
 }
 
 .confirm-btn {
@@ -206,14 +248,16 @@ img {
 .modal .modal-container .modal-body {
   display: block;
   margin-top: 10px;
-  padding: 4px;
+  /* padding: 4px; */
 }
 
 .modal .modal-container .modal-body .list-items {
   display: flex;
   gap: 10px;
   width: 100%;
-  height: 90px;
+  height: 60px;
+  padding: 8px;
+  border-bottom: 1px solid red;
   align-items: center;
 }
 
@@ -284,7 +328,7 @@ img {
   .col-box button {
     position: absolute;
     top: 165px;
-    left: 160px;
+    left:35%;
     height: 50px;
     padding: 8px;
   }
@@ -320,4 +364,5 @@ img {
   .modal-btn{
     width: 100%;
   }
+
 }

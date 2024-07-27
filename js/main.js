@@ -7,10 +7,12 @@ const cart = [];
 const cartCount = "";
 const quantity = 1;
 
+const cartBox = document.getElementById('cart-box')
+
 // Function to calculate and update the total price
 function updateTotalPrice() {
     
-const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
     const totalContainer = document.getElementById('total-price');
     totalContainer.textContent = `Total: $${totalPrice}`;
     const modalTotalContainer = document.getElementById('modal-total-price');
@@ -21,7 +23,7 @@ const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 function addToCart(item, quantity) {
   const existingItem = cart.find((cartitem) => cartitem.id === item.id);
   if (!existingItem) {
-    cart.push({...item,quantity});
+    cart.push({...item, quantity});
     updateCartCounter();
     updateTotalPrice()
   } else {
@@ -92,7 +94,7 @@ function displayItems(foodDatas) {
     const addBtn = document.createElement("button");
     addBtn.classList.add("icon");
     addBtn.textContent = "Add to Cart";
-    addBtn.setAttribute("data-hover-text", "Click to add to cart");
+    // addBtn.setAttribute("data-hover-text", "Click to add to cart");
     addBtn.onclick = () => addToCart(item, quantity);
 
     const foodImage = document.createElement("img");
@@ -110,7 +112,8 @@ function displayItems(foodDatas) {
     boldTitle.textContent = `${item.name}`;
     const foodPrice = document.createElement("p");
     foodPrice.classList.add("foodprice");
-    foodPrice.textContent = `$${item.price}`;
+    foodPrice.textContent = `$${item.price}.00`;
+    
 
     colBox.id = `${item - item.id}`;
     colBox.appendChild(foodImage);
@@ -176,7 +179,7 @@ function renderCart() {
 // function to remove item from cart
 
 function removeFromCart(item) {
- cart.filter((cartItem) => cartItem.id != item);
+ cart.filter((cartItem )=> cartItem.id != item);
   renderCart();
   updateCartCounter();
   updateTotalPrice();
@@ -188,7 +191,23 @@ function updateCartCounter() {
 }
 
 displayItems(foodData);
-renderCart();
+
+if(cart.length === 0 ){
+    renderCart();
+   
+}else{
+ 
+// const emptycartMessage = document.createElement('p');
+    // emptycartMessage.textContent = 'Cart is Empty!';
+    // emptycartMessage.classList.add('empty-cart');
+
+
+    // cartBox.appendChild(emptycartMessage);
+    cartBox.textContent = 'Empty Cart !'
+    cartBox.style.textAlign= 'center';
+
+}
+
 
 const modalBox = document.getElementById('modal');
 const modalBody = document.getElementById('modal-body');
